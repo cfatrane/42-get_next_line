@@ -6,11 +6,11 @@
 /*   By: cfatrane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:14:36 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/17 18:14:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/20 13:19:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	get_next_line(const int fd, char **line)
 {
-
+	return (0);
 }
