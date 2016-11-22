@@ -6,7 +6,7 @@
 /*   By: cfatrane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:14:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/20 16:58:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/22 19:40:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/uio.h>
 # include "./libft/libft.h"
 
-# define BUFF_SIZE 4096
+# define BUFF_SIZE 32
 
 int	get_next_line(const int fd, char **line);
 
