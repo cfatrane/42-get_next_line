@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 11:27:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/19 10:58:56 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/22 10:40:45 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/11/22 10:47:41 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;
-	size_t	i;
 
-	i = 0;
 	if (!(s2 = ft_strnew(ft_strlen(s1))))
 		return (NULL);
 	ft_strcpy(s2, s1);
