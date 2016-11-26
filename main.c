@@ -5,13 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 18:46:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 19:06:47 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/26 17:34:20 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/11/26 17:35:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int argc, char **argv)
+#include "get_next_line.h"
+
+int	main(int argc,char **argv)
 {
-	
-	return 0;
+
+
+
+
+
+	return (0);
 }
