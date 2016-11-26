@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/26 17:38:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/26 17:41:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_next_line(const int fd, char **line)
 	int			ret;
 
 	ret = read(fd, buf, BUFF_SIZE);
-	if (fd == -1 || *line == NULL || ret == -1)
+	if (fd < 0 || *line == NULL || ret == -1)
 		return (-1);
 	save = ft_strnew(1);
 	while (!(ft_strchr(*line, '\n')))
