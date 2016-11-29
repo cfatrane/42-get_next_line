@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 10:48:55 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/28 19:05:31 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/22 10:39:45 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/11/22 10:39:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_sqrt(int nb)
 {
-	char *line;
-	int fd;
+	int root;
 
-	if (argc == 2)
+	root = 1;
+	while (root * root != nb)
 	{
-		fd = open(argv[1], O_RDONLY);
-		get_next_line(fd, &line);
-		printf("line 1 = %s\n\n" ,line);
-		printf("yoloswag\n\n");
-		get_next_line(fd, &line);
-		printf("line 2 = %s\n" ,line);
-		printf("yoloswag\n\n");
-		get_next_line(fd, &line);
-		printf("line 3 = %s\n" ,line);
+		if (root / 2 > nb)
+		{
+			break ;
+		}
+		root++;
 	}
-//	ft_putendl(line);
+	if (root * root == nb)
+		return (root);
 	return (0);
 }
