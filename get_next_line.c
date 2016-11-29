@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/29 09:57:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/29 10:05:21 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,40 @@
 
   }*/
 /*char	*ft_strcdup(const char *s1, char c)
-{
-	char	*s2;
-	size_t	i;
+  {
+  char	*s2;
+  size_t	i;
 
-	i = 0;
-	if (!(s2 = ft_strnew(ft_strlen(s1))))
-		return (NULL);
-	while (s1[i] != '\0' && s1[i] != c)
+  i = 0;
+  if (!(s2 = ft_strnew(ft_strlen(s1))))
+  return (NULL);
+  while (s1[i] != '\0' && s1[i] != c)
+  {
+  s2[i] = s1[i];
+  i++;
+  }
+  return (s2);
+  }*/
+
+int	ft_check(char *save, char **line)
+{	
+	char	*fin;
+
+	fin = ft_strchr(save, '\n');
+	if (fin != NULL)
 	{
-		s2[i] = s1[i];
-		i++;
+		*fin = '\0';
+		//	printf("fin apres boucle = %s\n", fin);
+		//		printf("predub de save = %s\n\n", save);
+		*line = ft_strdup(save);
+		//		printf("postdub de save = %s\n\n", save);
+		//	printf("ligne fin = %s\n =",  (&fin[1]));
+		//	ft_putchar('\n');
+		ft_memmove(save, &fin[1], ft_strlen(&fin[1]) + 1);
+		//	printf("postmem de save = %s\n\n", save);
+		return (1);
 	}
-	return (s2);
-}*/
-int	check(int save, char **line)
-{
-
-
-
-
+	//	printf("Line final = %s\n", *line);
 	return (0);
 }
 
@@ -46,8 +60,6 @@ int	get_next_line(const int fd, char **line)
 	static char	*save = NULL;
 	char		*tmp;
 	int			ret;
-	//	char		*check;
-	char		*fin;
 
 	if (!(save))
 		save = ft_strnew(0);
@@ -69,31 +81,11 @@ int	get_next_line(const int fd, char **line)
 		free(save);
 		save = tmp;
 	}
-//	*line = ft_strcdup(save, '\n');
-//	tmp = ft_strchr(save, '\n');
-//	save = tmp + 1;
-//	printf("save = %s\n\n", save);
-	fin = ft_strchr(save, '\n');
-//	printf("fin avant boucle = %s\n", fin);
-	if (fin != NULL)
-	{
-		*fin = '\0';
-	//	printf("fin apres boucle = %s\n", fin);
-//		printf("predub de save = %s\n\n", save);
-		*line = ft_strdup(save);
-//		printf("postdub de save = %s\n\n", save);
-	//	printf("ligne fin = %s\n =",  (&fin[1]));
-	//	ft_putchar('\n');
-		ft_memmove(save, &fin[1], ft_strlen(&fin[1]) + 1);
-	//	printf("postmem de save = %s\n\n", save);
-		return (1);
-	}
-/*	if (ft_strlen(save) > 0)
-	{
-		*line = ft_strdup(save);
-		*save = '\0';
-		return (1);
-	 }*/
-	//	printf("Line final = %s\n", *line);
+	//	*line = ft_strcdup(save, '\n');
+	//	tmp = ft_strchr(save, '\n');
+	//	save = tmp + 1;
+	//	printf("save = %s\n\n", save);
+	//	printf("fin avant boucle = %s\n", fin);
+	ft_check(save, line);
 	return (0);
 }
