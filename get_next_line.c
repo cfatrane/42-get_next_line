@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/29 11:40:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/29 12:57:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@
 static int	ft_check(char *save, char **line)
 {
 	char	*fin;
+	static int		i;
 
+	i = 0;
+	if (i == 0)
+		i++;
 	fin = ft_strchr(save, '\n');
+//	printf("fin = %s\n", fin);
 	if (fin != NULL)
 	{
 		*fin = '\0';
@@ -44,8 +49,11 @@ static int	ft_check(char *save, char **line)
 		ft_strncpy(save, &fin[1], ft_strlen(&fin[1]) + 1);
 		return (1);
 	}
-	else
+	else if (save != NULL)
 	{
+		printf("taille de save = %zu\n", ft_strlen(save));
+		printf("save = %s\n", &save[i]);
+		i++;
 		*line = ft_strdup(save);
 		*save = '\0';
 		return (1);
@@ -70,7 +78,7 @@ int			get_next_line(const int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		if (ret == 0)
-			break;
+			return (ft_check(save, line));
 		buf[ret] = '\0';
 		tmp = ft_strjoin(save, buf);
 		free(save);
