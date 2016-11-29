@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/29 10:05:21 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/29 10:21:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int	ft_check(char *save, char **line)
 	if (fin != NULL)
 	{
 		*fin = '\0';
-		//	printf("fin apres boucle = %s\n", fin);
-		//		printf("predub de save = %s\n\n", save);
+//		printf("fin apres boucle = %s\n", fin);
+//		printf("predub de save = %s\n\n", save);
 		*line = ft_strdup(save);
 		//		printf("postdub de save = %s\n\n", save);
 		//	printf("ligne fin = %s\n =",  (&fin[1]));
 		//	ft_putchar('\n');
-		ft_memmove(save, &fin[1], ft_strlen(&fin[1]) + 1);
+		ft_strncpy(save, &fin[1], ft_strlen(&fin[1]) + 1);
 		//	printf("postmem de save = %s\n\n", save);
 		return (1);
 	}
@@ -86,6 +86,5 @@ int	get_next_line(const int fd, char **line)
 	//	save = tmp + 1;
 	//	printf("save = %s\n\n", save);
 	//	printf("fin avant boucle = %s\n", fin);
-	ft_check(save, line);
-	return (0);
+	return (ft_check(save, line));
 }
