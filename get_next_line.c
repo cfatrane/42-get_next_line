@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/29 10:21:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/11/29 10:28:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
   return (s2);
   }*/
 
-int	ft_check(char *save, char **line)
+static int	ft_check(char *save, char **line)
 {	
 	char	*fin;
 
@@ -54,7 +54,7 @@ int	ft_check(char *save, char **line)
 	return (0);
 }
 
-int	get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
 	static char	*save = NULL;
