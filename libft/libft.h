@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/28 19:09:13 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/02 13:35:23 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+# define BUFF_SIZE 32
 
 void				*ft_memset(void *b, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -85,15 +87,18 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+int					get_next_line(const int fd, char **line);
+
 int					ft_islower(int c);
 int					ft_isspace(int c);
 int					ft_isupper(int c);
 char				*ft_strndup(const char *s1, size_t n);
+size_t				ft_tabintlen(int *tab);
+size_t				ft_lstlen(t_list *list);
 int					ft_count_itoa(int num);
 int					ft_count_words_sep(char const *s, char c);
 size_t				ft_strlen_sep(char const *s, char c);
 char				*ft_strrev_itoa(char *str);
-size_t				ft_lstcount(t_list *list);
 void				ft_swap(int *a, int *b);
 int					ft_sqrt(int nb);
 int					*ft_range(int min, int max);
