@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/05 11:48:41 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/16 10:43:24 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ SRC_NAME =	ft_memset.c				\
 			ft_islower.c			\
 			ft_isupper.c			\
 			ft_isspace.c			\
+			ft_isxdigit.c			\
 			ft_strndup.c			\
+			ft_abs.c				\
 			ft_tabintlen.c			\
 			ft_createtab.c			\
 			ft_lstlen.c				\
@@ -88,26 +90,32 @@ SRC_NAME =	ft_memset.c				\
 			ft_strccpy.c			\
 			ft_strcdup.c			\
 
+OBJ_PATH = ./objs/
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
+
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
-
 all: $(NAME)
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $^
-
-$(NAME): $(OBJ_NAME)
+$(NAME): $(OBJ)
 	@echo "Creation of $(NAME) ..."
-	@ar rc $(NAME) $(OBJ_NAME)
+	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "$(NAME) created"
 
+$(OBJ_PATH)%.o: $(SRC)%.c
+	@mkdir $(OBJ_PATH) 2 > /dev/null || true
+	@$(CC) $(CFLAGS) -I./includes/ -o $@ -c $<
+
 clean:
 	@echo "Removal of .o files of $(NAME) ..."
-	@rm -f $(OBJ_NAME)
+	@rm -f $(OBJ)
+	@rmdir $(OBJ_PATH) 2 > /dev/null || true
 	@echo "Files .o deleted\n"
 
 fclean: clean
