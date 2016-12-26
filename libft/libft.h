@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/16 11:26:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/26 18:40:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <unistd.h>
 
 # define BUFF_SIZE 32
+
+typedef struct		s_gnl
+{
+	char			*text;
+	char			*tempo;
+	struct s_gnl	*next;
+	int				fd;
+}					t_gnl;
 
 void				*ft_memset(void *b, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -96,13 +104,23 @@ int					ft_isxdigit(int c);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_abs(int nb);
 
+void				ft_print_hex(size_t n);
+unsigned char		ft_swap_bits(unsigned char octet);
+
 size_t				ft_tabintlen(int *tab);
 int					**ft_createtab(int nblin, int nbcol);
+int					ft_nbrlen(int nbr);
+int					ft_nbrlen_uns(unsigned long int nb);
+int					ft_nbcmp(int nb1, int nb2);
 size_t				ft_lstlen(t_list *list);
 int					ft_count_itoa(int num);
+void				ft_putnbr_base(size_t nb, char *base);
+void				ft_putnbr_uns(long int nb);
 char				*ft_itoa_base(int num, int base);
+int					ft_size_tab_base(size_t num, int base);
 int					ft_count_words_sep(char const *s, char c);
 size_t				ft_strlen_sep(char const *s, char c);
+char				*ft_strrev(char *str);
 char				*ft_strrev_itoa(char *str);
 void				ft_swap(int *a, int *b);
 int					ft_sqrt(int nb);

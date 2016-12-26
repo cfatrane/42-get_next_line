@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/30 12:01:58 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/22 18:53:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 static int	ft_check(char *save, char **line)
 {

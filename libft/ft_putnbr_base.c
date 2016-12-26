@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:39:19 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/20 16:32:57 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/16 17:02:27 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/26 18:23:15 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_base(size_t nb, char *base)
 {
-	long int nbr;
-
-	nbr = (long int)nb;
-	if (nbr < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr = -nbr;
-	}
-	if (nbr > 9)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((nbr % 10) + '0', fd);
+	if (nb >= ft_strlen(base))
+		ft_putnbr_base(nb / ft_strlen(base), base);
+	ft_putchar(base[nb % ft_strlen(base)]);
 }
