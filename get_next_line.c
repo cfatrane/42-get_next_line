@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/26 18:40:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/27 16:57:00 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 static void		ft_list_add_last(t_gnl **save, t_gnl *elem)
 {
