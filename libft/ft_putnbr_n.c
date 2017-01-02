@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_tab_base.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/26 17:12:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/28 17:32:23 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/29 20:04:19 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/29 20:19:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_size_tab_base(size_t n, int base)
+void	ft_putnbr_n(long long int nb, int n)
 {
-	int	len;
+	static int i = 0;
 
-	len = 0;
-	while (n != 0)
+	if (nb < 0)
 	{
-		n /= base;
-		len++;
+		ft_putchar('-');
+		nb = -nb;
+		i++;
 	}
-	return (len);
+	if (nb > 9 && i < n)
+	{
+		ft_putnbr(i);
+		i++;
+		ft_putnbr_n(nb / 10, n);
+	}
+	ft_putchar(nb % 10);
 }

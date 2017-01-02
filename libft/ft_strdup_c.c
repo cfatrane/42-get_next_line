@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_tab_base.c                                 :+:      :+:    :+:   */
+/*   ft_strcdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/26 17:12:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/28 17:32:23 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/28 19:04:36 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/29 17:43:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_size_tab_base(size_t n, int base)
+char	*ft_strcdup(const char *s1, char c)
 {
-	int	len;
+	char*s2;
 
-	len = 0;
-	while (n != 0)
-	{
-		n /= base;
-		len++;
-	}
-	return (len);
+	if (!(s2 = ft_strnew(ft_strlen(s1))))
+		return (NULL);
+	ft_strcpy_c(s2, s1, c);
+	return (s2);
 }

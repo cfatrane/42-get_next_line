@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcdup.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 19:04:36 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/30 10:04:36 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/29 17:37:17 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/29 17:37:23 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcdup(const char *s1, char c)
+void	ft_putstr_n(const char *s, int n)
 {
-	char*s2;
+	int i;
 
-	if (!(s2 = ft_strnew(ft_strlen(s1))))
-		return (NULL);
-	ft_strccpy(s2, s1, c);
-	return (s2);
+	i = 0;
+	while (i < n && s[i] != '\0')
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
 }

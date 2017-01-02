@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_tab_base.c                                 :+:      :+:    :+:   */
+/*   ft_print_bits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/26 17:12:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/28 17:32:23 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/30 18:53:46 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/30 18:54:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_size_tab_base(size_t n, int base)
+void	print_bits(unsigned char octet)
 {
-	int	len;
+	int				i;
+	unsigned char	c;
 
-	len = 0;
-	while (n != 0)
+	i = 128;
+	while (i > 0)
 	{
-		n /= base;
-		len++;
+		if (octet < i)
+		{
+			c = '0';
+			i = i / 2;
+			write(1, &c, 1);
+		}
+		else
+		{
+			c = '1';
+			write(1, &c, 1);
+			octet = octet - i;
+			i = i / 2;
+		}
 	}
-	return (len);
 }
