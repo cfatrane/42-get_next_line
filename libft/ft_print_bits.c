@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:53:46 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/30 18:54:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/02 20:08:50 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void	print_bits(unsigned char octet)
 		if (octet < i)
 		{
 			c = '0';
-			i = i / 2;
 			write(1, &c, 1);
+			i /= 2;
 		}
 		else
 		{
 			c = '1';
 			write(1, &c, 1);
 			octet = octet - i;
-			i = i / 2;
+			i /= 2;
 		}
 	}
 }

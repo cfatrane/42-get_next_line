@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/30 18:54:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/12 11:46:22 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <limits.h>
+# include <wchar.h>
 
 # include <stdio.h>
 
@@ -77,11 +79,11 @@ char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
-void				ft_putnbr(long long int n);
+void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr_fd(long long int n, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 typedef struct		s_list
 {
@@ -105,6 +107,12 @@ int					ft_isupper(int c);
 int					ft_isxdigit(int c);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_abs(int nb);
+void				ft_putwchar(wchar_t c);
+void				ft_putwstr(wchar_t const *str);
+void				ft_putwstr_n(wchar_t *str, int n);
+int					ft_wcharlen(wchar_t c);
+size_t				ft_strwlen(const wchar_t *s);
+size_t				ft_strwlen_n(const wchar_t *s, int n);
 
 void				ft_print_hex(size_t n);
 unsigned char		ft_swap_bits(unsigned char octet);
@@ -112,12 +120,17 @@ void				ft_print_bits(unsigned char octet);
 
 size_t				ft_tabintlen(int *tab);
 int					**ft_createtab(int nblin, int nbcol);
-int					ft_nbrlen(long long int nbr);
+int					ft_nbrlen(long long int nb);
+int					ft_nbrlen_binary(unsigned long long int nb);
+int					ft_nbrlen_octal(unsigned long long int nb);
+int					ft_nbrlen_hexa(unsigned long long int nb);
 int					ft_nbrlen_uns(unsigned long long int nb);
-int					ft_nbcmp(int nb1, int nb2);
+int					ft_nbcmp_min(int nb1, int nb2);
+int					ft_nbcmp_max(int nb1, int nb2);
 size_t				ft_lstlen(t_list *list);
 int					ft_count_itoa(int num);
 void				ft_putnbr_base(unsigned long long int n, char *base);
+void				ft_putnbr_lng(long long int n);
 void				ft_putnbr_uns(unsigned long long int n);
 char				*ft_itoa_base(unsigned long long int n, char *base);
 int					ft_size_tab_base(size_t n, int base);

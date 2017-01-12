@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/30 18:55:17 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/12 11:46:44 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,17 +77,28 @@ SRC_NAME =	ft_memset.c				\
 			ft_isxdigit.c			\
 			ft_strndup.c			\
 			ft_abs.c				\
+			ft_putwchar.c			\
+			ft_putwstr.c			\
+			ft_putwstr_n.c			\
+			ft_wcharlen.c			\
+			ft_strwlen.c			\
+			ft_strwlen_n.c			\
 			ft_print_hex.c			\
 			ft_swap_bits.c			\
 			ft_print_bits.c			\
 			ft_tabintlen.c			\
 			ft_createtab.c			\
 			ft_nbrlen.c				\
+			ft_nbrlen_binary.c		\
+			ft_nbrlen_octal.c		\
+			ft_nbrlen_hexa.c		\
 			ft_nbrlen_uns.c			\
-			ft_nbcmp.c				\
+			ft_nbcmp_min.c			\
+			ft_nbcmp_max.c			\
 			ft_lstlen.c				\
 			ft_count_itoa.c			\
 			ft_putnbr_base.c		\
+			ft_putnbr_lng.c			\
 			ft_putnbr_uns.c			\
 			ft_itoa_base.c			\
 			ft_size_tab_base.c		\
